@@ -18,6 +18,7 @@ AdaoNet* AdaoNet::getInstance(){
     return &net;
 }
 void AdaoNet::get(QString url){
+    qDebug() << "[INFO] getting url" << url;
     QNetworkRequest request;
     request.setUrl(QUrl(url));
     request.setRawHeader("User-Agent", "HavfunClient-qt QAdao " VISION ARCH);

@@ -1,6 +1,7 @@
 #ifndef ADAODATA_H
 #define ADAODATA_H
 #include <QString>
+#include <QVector>
 class QDebug;
 class ForumList
 {
@@ -25,7 +26,7 @@ public:
     QString title;
     QString content;
     bool admin;
-    int replyCount;
+    QVector<ThreadInfo> replys;
 };
 QDebug operator <<(QDebug dbg, const ThreadInfo &w);
 #endif // ADAODATA_H
