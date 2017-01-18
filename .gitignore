@@ -31,3 +31,5 @@
 *.pro.user
 moc_*
 .qmake.stash
+Makefile
+Qadao
