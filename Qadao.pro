@@ -27,13 +27,16 @@ SOURCES += main.cpp \
     AdaoNet.cpp \
     AdaoJSON.cpp \
     AdaoData.cpp \
-    AdaoTest.cpp
+    AdaoTest.cpp \
+    AdaoMainWindow.cpp
 
 HEADERS  += \
     AdaoNet.h \
     AdaoJSON.h \
     defines.h \
     AdaoData.h \
-    AdaoTest.h
+    AdaoTest.h \
+    AdaoMainWindow.h
 
-FORMS    +=
+FORMS    += \
+    AdaoMainWindow.ui

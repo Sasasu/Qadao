@@ -8,8 +8,8 @@
 AdaoTest::AdaoTest() : json(new AdaoJSON()) {}
 bool AdaoTest::test() {
   this->testGetContent();
-//  this->testGetForumList();
-//  this->testGetThread();
+  this->testGetForumList();
+  this->testGetThread();
   return true;
 }
 bool AdaoTest::testGetContent() {
