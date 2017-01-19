@@ -26,12 +26,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp \
     AdaoNet.cpp \
     AdaoJSON.cpp \
-    AdaoData.cpp
+    AdaoData.cpp \
+    AdaoTest.cpp
 
 HEADERS  += \
     AdaoNet.h \
     AdaoJSON.h \
     defines.h \
-    AdaoData.h
+    AdaoData.h \
+    AdaoTest.h
 
 FORMS    +=
