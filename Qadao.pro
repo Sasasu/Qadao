@@ -40,3 +40,8 @@ HEADERS  += \
 
 FORMS    += \
     AdaoMainWindow.ui
+
+DISTFILES += \
+    README \
+    .gitignore \
+    README.md

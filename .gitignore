@@ -33,3 +33,4 @@ moc_*
 .qmake.stash
 Makefile
 Qadao
+ui_AdaoMainWindow.h

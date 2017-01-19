@@ -22,47 +22,51 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_AdaoMainWindow {
+class Ui_AdaoMainWindow
+{
 public:
-  QWidget *centralwidget;
-  QListWidget *ForumList;
-  QListWidget *Threadlist;
-  QMenuBar *menubar;
-  QStatusBar *statusbar;
+    QWidget *centralwidget;
+    QListWidget *ForumList;
+    QListWidget *Threadlist;
+    QMenuBar *menubar;
+    QStatusBar *statusbar;
 
-  void setupUi(QMainWindow *AdaoMainWindow) {
-    if (AdaoMainWindow->objectName().isEmpty())
-      AdaoMainWindow->setObjectName(QStringLiteral("AdaoMainWindow"));
-    AdaoMainWindow->resize(888, 482);
-    centralwidget = new QWidget(AdaoMainWindow);
-    centralwidget->setObjectName(QStringLiteral("centralwidget"));
-    ForumList = new QListWidget(centralwidget);
-    ForumList->setObjectName(QStringLiteral("ForumList"));
-    ForumList->setGeometry(QRect(0, 0, 141, 461));
-    Threadlist = new QListWidget(centralwidget);
-    Threadlist->setObjectName(QStringLiteral("Threadlist"));
-    Threadlist->setGeometry(QRect(140, 0, 751, 461));
-    AdaoMainWindow->setCentralWidget(centralwidget);
-    menubar = new QMenuBar(AdaoMainWindow);
-    menubar->setObjectName(QStringLiteral("menubar"));
-    menubar->setGeometry(QRect(0, 0, 888, 23));
-    AdaoMainWindow->setMenuBar(menubar);
-    statusbar = new QStatusBar(AdaoMainWindow);
-    statusbar->setObjectName(QStringLiteral("statusbar"));
-    AdaoMainWindow->setStatusBar(statusbar);
+    void setupUi(QMainWindow *AdaoMainWindow)
+    {
+        if (AdaoMainWindow->objectName().isEmpty())
+            AdaoMainWindow->setObjectName(QStringLiteral("AdaoMainWindow"));
+        AdaoMainWindow->resize(888, 482);
+        centralwidget = new QWidget(AdaoMainWindow);
+        centralwidget->setObjectName(QStringLiteral("centralwidget"));
+        ForumList = new QListWidget(centralwidget);
+        ForumList->setObjectName(QStringLiteral("ForumList"));
+        ForumList->setGeometry(QRect(0, 0, 141, 461));
+        Threadlist = new QListWidget(centralwidget);
+        Threadlist->setObjectName(QStringLiteral("Threadlist"));
+        Threadlist->setGeometry(QRect(140, 0, 751, 461));
+        AdaoMainWindow->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(AdaoMainWindow);
+        menubar->setObjectName(QStringLiteral("menubar"));
+        menubar->setGeometry(QRect(0, 0, 888, 23));
+        AdaoMainWindow->setMenuBar(menubar);
+        statusbar = new QStatusBar(AdaoMainWindow);
+        statusbar->setObjectName(QStringLiteral("statusbar"));
+        AdaoMainWindow->setStatusBar(statusbar);
 
-    retranslateUi(AdaoMainWindow);
+        retranslateUi(AdaoMainWindow);
 
-    QMetaObject::connectSlotsByName(AdaoMainWindow);
-  } // setupUi
+        QMetaObject::connectSlotsByName(AdaoMainWindow);
+    } // setupUi
 
-  void retranslateUi(QMainWindow *AdaoMainWindow) {
-    AdaoMainWindow->setWindowTitle(QString());
-  } // retranslateUi
+    void retranslateUi(QMainWindow *AdaoMainWindow)
+    {
+        AdaoMainWindow->setWindowTitle(QString());
+    } // retranslateUi
+
 };
 
 namespace Ui {
-class AdaoMainWindow : public Ui_AdaoMainWindow {};
+    class AdaoMainWindow: public Ui_AdaoMainWindow {};
 } // namespace Ui
 
 QT_END_NAMESPACE

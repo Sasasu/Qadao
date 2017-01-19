@@ -23,10 +23,9 @@ AdaoMainWindow::~AdaoMainWindow() {
 }
 void AdaoMainWindow::getFormList() {
     json->getForumList();
-    connect(
-                json, static_cast<void (AdaoJSON::*)(QSharedPointer<QVector<ForumList>>)>(
-                    &AdaoJSON::finished),
-                [&](QSharedPointer<QVector<ForumList>> forumlist) {
+    connect(json, static_cast<void (AdaoJSON::*)(QSharedPointer<QVector<ForumList>>)>(
+                &AdaoJSON::finished),
+            [&](QSharedPointer<QVector<ForumList>> forumlist) {
         this->ui->ForumList->clear();
         this->forumlist = forumlist;
         for (ForumList &forum : *forumlist) {
