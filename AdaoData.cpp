@@ -1,7 +1,6 @@
 #include "AdaoData.h"
 #include <QDebug>
-QDebug operator <<(QDebug dbg, const ForumList &w)
-{
+QDebug operator<<(QDebug dbg, const ForumList &w) {
     dbg.nospace() << "{ "
                   << "id: " << w.id << "; "
                   << "name: " << w.name << "; "
@@ -9,7 +8,7 @@ QDebug operator <<(QDebug dbg, const ForumList &w)
                   << "}";
     return dbg.space();
 }
-QDebug operator <<(QDebug dbg, const ThreadInfo &w){
+QDebug operator<<(QDebug dbg, const ThreadInfo &w) {
     dbg.nospace() << "{"
                   << "id: " << w.id << "; "
                   << "img: " << w.img << "; "

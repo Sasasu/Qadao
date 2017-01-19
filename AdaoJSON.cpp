@@ -2,9 +2,9 @@
 #include "AdaoNet.h"
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QJsonParseError>
 #include <QSharedPointer>
-#include <QJsonObject>
 #include <QVector>
 AdaoJSON::AdaoJSON(QObject *parent) : QObject(parent) {}
 void AdaoJSON::getForumList() {
@@ -42,7 +42,7 @@ void AdaoJSON::getForumList() {
 }
 
 void AdaoJSON::getContent(int id, int page) {
-    QSharedPointer<QVector<ThreadInfo> > vector(new QVector<ThreadInfo>);
+    QSharedPointer<QVector<ThreadInfo>> vector(new QVector<ThreadInfo>);
     QString url(AdaoURL + "/Api/showf?id=" + QString::number(id) + "&page=" +
                 QString::number(page) + "&appid=" + AdaoAPIid);
     AdaoNet *net = AdaoNet::getInstance();
@@ -59,7 +59,7 @@ void AdaoJSON::getContent(int id, int page) {
             emit this->finished(vector);
             return;
         }
-        for(const QJsonValueRef jsonarry : jsonDocument.array()){
+        for (const QJsonValueRef jsonarry : jsonDocument.array()) {
             ThreadInfo info;
             QVariantMap result = jsonarry.toVariant().toMap();
             info.id = result["id"].toInt();
@@ -71,7 +71,7 @@ void AdaoJSON::getContent(int id, int page) {
             info.title = result["title"].toString();
             info.content = result["content"].toString();
             info.admin = result["admin"].toBool();
-            for(const QVariant subarry:result["replys"].toList()){
+            for (const QVariant subarry : result["replys"].toList()) {
                 QVariantMap subresult = subarry.toMap();
                 ThreadInfo subinfo;
                 subinfo.id = subresult["id"].toInt();
@@ -91,8 +91,8 @@ void AdaoJSON::getContent(int id, int page) {
     });
 }
 
-void AdaoJSON::getThread(int id, int page){
-    QSharedPointer<QVector<ThreadInfo> > vector(new QVector<ThreadInfo>);
+void AdaoJSON::getThread(int id, int page) {
+    QSharedPointer<QVector<ThreadInfo>> vector(new QVector<ThreadInfo>);
     QString url(AdaoURL + "/Api/thread?id=" + QString::number(id) + "&page=" +
                 QString::number(page) + "&appid=" + AdaoAPIid);
     AdaoNet *net = AdaoNet::getInstance();
@@ -120,7 +120,7 @@ void AdaoJSON::getThread(int id, int page){
         info.title = result["title"].toString();
         info.content = result["content"].toString();
         info.admin = result["admin"].toBool();
-        for(const QVariant subarry : result["replys"].toList()){
+        for (const QVariant subarry : result["replys"].toList()) {
             QVariantMap subresult = subarry.toMap();
             ThreadInfo subinfo;
             subinfo.id = subresult["id"].toInt();

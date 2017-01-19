@@ -2,8 +2,7 @@
 #define ADAOTEST_H
 #include <QObject>
 class AdaoJSON;
-class AdaoTest : public QObject
-{
+class AdaoTest : public QObject {
     Q_OBJECT
 public:
     AdaoTest();

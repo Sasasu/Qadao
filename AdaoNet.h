@@ -1,13 +1,12 @@
 #ifndef ADAONET_H
 #define ADAONET_H
-#include <QObject>
 #include <QNetworkAccessManager>
 #include <QNetworkReply>
+#include <QObject>
 class QByteArray;
 class QString;
 
-class AdaoNet : public QObject
-{
+class AdaoNet : public QObject {
     Q_OBJECT
 public:
     static AdaoNet *getInstance();
@@ -16,7 +15,7 @@ public:
 
 private:
     explicit AdaoNet(QObject *parent = 0);
-    AdaoNet & operator =(AdaoNet) = delete;
+    AdaoNet &operator=(AdaoNet) = delete;
     AdaoNet(const AdaoNet &) = delete;
 
     QNetworkAccessManager *NetManager;

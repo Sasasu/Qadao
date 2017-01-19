@@ -3,18 +3,16 @@
 #include <QString>
 #include <QVector>
 class QDebug;
-class ForumList
-{
+class ForumList {
 public:
     ForumList() {}
     int id;
     QString name;
     QString msg;
 };
-QDebug operator <<(QDebug dbg, const ForumList &w);
+QDebug operator<<(QDebug dbg, const ForumList &w);
 
-class ThreadInfo
-{
+class ThreadInfo {
 public:
     ThreadInfo() {}
     int id;
@@ -28,5 +26,5 @@ public:
     bool admin;
     QVector<ThreadInfo> replys;
 };
-QDebug operator <<(QDebug dbg, const ThreadInfo &w);
+QDebug operator<<(QDebug dbg, const ThreadInfo &w);
 #endif // ADAODATA_H

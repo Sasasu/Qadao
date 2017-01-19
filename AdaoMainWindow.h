@@ -11,8 +11,7 @@ namespace Ui {
 class AdaoMainWindow;
 }
 
-class AdaoMainWindow : public QMainWindow
-{
+class AdaoMainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
@@ -23,7 +22,7 @@ private:
     Ui::AdaoMainWindow *ui;
     void getFormList();
     void getThreadInfo(int id, int page);
-    int getForumIdByString(QString name);
+    void getThreaddetail(int id, int page);
     void changeThredList(int id);
     AdaoJSON *json;
     QSharedPointer<QVector<ForumList>> forumlist;
