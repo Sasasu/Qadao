@@ -14,8 +14,10 @@ AdaoNet::~AdaoNet(){
 }
 
 AdaoNet* AdaoNet::getInstance(){
-    static AdaoNet net;
-    return &net;
+//    static AdaoNet net;
+//    return &net;
+    AdaoNet *net = new AdaoNet;
+    return net;
 }
 void AdaoNet::get(QString url){
     qDebug() << "[INFO] getting url" << url;
