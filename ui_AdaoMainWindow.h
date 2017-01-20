@@ -17,6 +17,7 @@
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -28,6 +29,8 @@ public:
     QWidget *centralwidget;
     QListWidget *ForumList;
     QListWidget *Threadlist;
+    QPushButton *nextpageButton;
+    QPushButton *prepageButton;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -35,7 +38,7 @@ public:
     {
         if (AdaoMainWindow->objectName().isEmpty())
             AdaoMainWindow->setObjectName(QStringLiteral("AdaoMainWindow"));
-        AdaoMainWindow->resize(888, 482);
+        AdaoMainWindow->resize(938, 478);
         centralwidget = new QWidget(AdaoMainWindow);
         centralwidget->setObjectName(QStringLiteral("centralwidget"));
         ForumList = new QListWidget(centralwidget);
@@ -44,10 +47,16 @@ public:
         Threadlist = new QListWidget(centralwidget);
         Threadlist->setObjectName(QStringLiteral("Threadlist"));
         Threadlist->setGeometry(QRect(140, 0, 751, 461));
+        nextpageButton = new QPushButton(centralwidget);
+        nextpageButton->setObjectName(QStringLiteral("nextpageButton"));
+        nextpageButton->setGeometry(QRect(890, 400, 41, 31));
+        prepageButton = new QPushButton(centralwidget);
+        prepageButton->setObjectName(QStringLiteral("prepageButton"));
+        prepageButton->setGeometry(QRect(890, 0, 51, 31));
         AdaoMainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(AdaoMainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 888, 23));
+        menubar->setGeometry(QRect(0, 0, 938, 23));
         AdaoMainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(AdaoMainWindow);
         statusbar->setObjectName(QStringLiteral("statusbar"));
@@ -61,6 +70,8 @@ public:
     void retranslateUi(QMainWindow *AdaoMainWindow)
     {
         AdaoMainWindow->setWindowTitle(QString());
+        nextpageButton->setText(QApplication::translate("AdaoMainWindow", "\344\270\213\344\270\200\351\241\265", Q_NULLPTR));
+        prepageButton->setText(QApplication::translate("AdaoMainWindow", "\344\270\212\344\270\200\351\241\265", Q_NULLPTR));
     } // retranslateUi
 
 };

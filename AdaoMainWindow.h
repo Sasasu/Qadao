@@ -7,6 +7,7 @@
 class AdaoJSON;
 class ThreadInfo;
 class ForumList;
+
 namespace Ui {
 class AdaoMainWindow;
 }
@@ -24,6 +25,8 @@ private:
     void getThreadInfo(int id, int page);
     void getThreaddetail(int id, int page);
     void changeThredList(int id);
+    int nowpage;
+    int nowid;
     AdaoJSON *json;
     QSharedPointer<QVector<ForumList>> forumlist;
     QSharedPointer<QVector<ThreadInfo>> threadinfo;

@@ -4,6 +4,7 @@
 #include "ui_AdaoMainWindow.h"
 #include <QDebug>
 #include <QListWidgetItem>
+#include <QPushButton>
 AdaoMainWindow::AdaoMainWindow(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::AdaoMainWindow), json(new AdaoJSON) {
     ui->setupUi(this);
@@ -15,6 +16,15 @@ AdaoMainWindow::AdaoMainWindow(QWidget *parent)
     tmp = new QListWidgetItem(this->ui->Threadlist);
     tmp->setText(tr("你要先点左边这里才会有东西"));
     this->ui->Threadlist->addItem(tmp);
+
+    connect(this->ui->nextpageButton,&QPushButton::clicked,[this](){
+        this->getThreadInfo(this->nowid,this->nowpage+1);
+//        disconnect(this->ui->nextpageButton); not work?
+    });
+    connect(this->ui->prepageButton,&QPushButton::clicked,[this](){
+        this->getThreadInfo(this->nowid,this->nowpage-1);
+//        disconnect(this->ui->prepageButton);
+    });
 }
 
 AdaoMainWindow::~AdaoMainWindow() {
@@ -44,6 +54,8 @@ void AdaoMainWindow::getFormList() {
 }
 void AdaoMainWindow::getThreadInfo(int id, int page) {
     json->getContent(id, page);
+    this->nowid = id;
+    this->nowpage = page;
     connect(json,
             static_cast<void (AdaoJSON::*)(QSharedPointer<QVector<ThreadInfo>>)>(
                 &AdaoJSON::finished),
@@ -52,19 +64,17 @@ void AdaoMainWindow::getThreadInfo(int id, int page) {
         this->threadinfo = thredinfo;
         for (ThreadInfo &thread : *thredinfo) {
             QListWidgetItem *qw = new QListWidgetItem(this->ui->Threadlist);
-            qw->setText(tr("ID:") + thread.userid + "\t" + thread.now + "\n" +
+            qw->setText(thread.userid + "\t" +thread.name +
+                        "\t" + thread.now + "\n" +
                         thread.content + "\n");
             this->ui->Threadlist->addItem(qw);
         }
-        this->ui->Threadlist->addItem(tr("\n\t\t点击加载下一页\n"));
-        QObject::connect(this->ui->Threadlist,
-                         &QListWidget::currentRowChanged,
-                         [this](const int) {});
+
         disconnect(json);
     });
 }
 void AdaoMainWindow::getThreaddetail(int id, int page) {
-    json->getContent(id, page);
+    json->getThread(id,page);
 }
 
 void AdaoMainWindow::changeThredList(int id) { this->getThreadInfo(id, 1); }
