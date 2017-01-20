@@ -44,4 +44,5 @@ FORMS    += \
 DISTFILES += \
     README \
     .gitignore \
-    README.md
+    README.md \
+    .travis.yml
